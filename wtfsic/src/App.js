@@ -13,7 +13,6 @@ function App() {
       try {
         const response = await fetch(apiUrl);
         const jsonData = await response.json();
-        console.log(jsonData);
         setRecipeList(jsonData);
       } catch (error) {
         console.log(error);
