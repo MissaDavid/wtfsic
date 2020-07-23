@@ -38,14 +38,14 @@ class Ingredient(models.Model):
     recipe = models.ForeignKey(
         to="Recipe", on_delete=models.CASCADE, related_name="ingredients"
     )
-    name = models.CharField(_("name"), max_length=150)
+    ingredient = models.CharField(_("ingredient"), max_length=150)
 
     class Meta:
         verbose_name = _("recipe ingredient")
         verbose_name_plural = _("recipe ingredients")
 
     def __str__(self):
-        return self.name
+        return self.ingredient
 
 
 class RecipeImage(models.Model):
