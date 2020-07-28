@@ -23,8 +23,10 @@ function App() {
 
   return (
     <div className='App'>
-      <header className='App-header'>WTF Should I Cook?</header>
-      <RecipeLister recipes={recipeList} />
+      <header className='App-header'>WTF Should I Cook?!</header>
+      <div className='App-container'>
+        <RecipeLister recipes={recipeList} />
+      </div>
     </div>
   );
 }

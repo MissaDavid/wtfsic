@@ -1,0 +1,29 @@
+.card {
+  border: #8dc541 2px solid;
+  border-radius: 1rem;
+  width: 20rem;
+  height: 25rem;
+  margin: 1rem 0.8rem;
+}
+
+.with-shadow {
+  -webkit-box-shadow: 1px 1px 2px 2px #ccc; /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow: 1px 1px 2px 2px #ccc; /* Firefox 3.5 - 3.6 */
+  box-shadow: 1px 1px 2px 2px #ccc; /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+.with-shadow:hover {
+  -webkit-box-shadow: 2px 2px 4px 5px #ccc; /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow: 2px 2px 4px 5px #ccc; /* Firefox 3.5 - 3.6 */
+  box-shadow: 2px 2px 4px 5px #ccc; /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+  opacity: 0.8;
+}
+
+.thumbnail-container {
+  height: 12rem;
+  border-radius: 1rem;
+}
+
+.centered {
+  text-align: center;
+}

@@ -1,0 +1,15 @@
+.no-result {
+  margin-top: 2rem;
+  text-align: center;
+  border: #8dc541 2px dotted;
+  border-radius: 1rem;
+}
+
+.recipe-lister {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.recipe-lister:first-child {
+  margin-left: 1.5rem;
+}
