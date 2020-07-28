@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 import RecipeLister from './components/Recipe/RecipeLister';
@@ -24,12 +23,8 @@ function App() {
 
   return (
     <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className='App-logo' alt='logo' />
-      </header>
-      <>
-        <RecipeLister recipes={recipeList} />
-      </>
+      <header className='App-header'>WTF Should I Cook?</header>
+      <RecipeLister recipes={recipeList} />
     </div>
   );
 }
