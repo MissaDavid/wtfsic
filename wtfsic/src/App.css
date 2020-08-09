@@ -5,10 +5,15 @@
 
 .App-header {
   background-color: #8dc541;
-  min-height: 10rem;
+  min-height: 8rem;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.App-container {
+  display: flex;
+  flex-direction: column;
 }

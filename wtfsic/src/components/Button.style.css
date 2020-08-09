@@ -1,0 +1,14 @@
+.simple-button {
+  cursor: pointer;
+  text-align: center;
+  font-family: inherit;
+  transition: opacity 0.5s;
+  border: none;
+  border-radius: 0.2rem;
+  color: #fff;
+  background-color: #783222;
+  margin: auto;
+  padding: 0.5rem;
+  font-size: 1.4rem;
+  min-width: 8rem;
+}
