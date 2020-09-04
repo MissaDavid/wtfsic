@@ -3,13 +3,15 @@ from django.utils import timezone
 from django.utils.translation import gettext as _
 from stdimage import StdImageField
 
-UNIT_CHOICES = (
-    ("g", _("gram")),
-    ("kg", _("kilogram")),
-    ("tsp", _("teaspoon")),
-    ("tbsp", _("tablespoon")),
-    ("cup", _("cup")),
-)
+
+class Unit(models.TextChoices):
+    UNIT = "U", _("unit")
+    GRAM = "G", _("gram")
+    KILO = "KG", _("kilogram")
+    TEASPOON = "TSP", _("teaspoon")
+    TABLESPOON = "TBSP", _("tablespoon")
+    CUP = "CUP", _("cup")
+    LITER = "L", _("liter")
 
 
 class Recipe(models.Model):
@@ -39,10 +41,12 @@ class Ingredient(models.Model):
         to="Recipe", on_delete=models.CASCADE, related_name="ingredients"
     )
     ingredient = models.CharField(_("ingredient"), max_length=150)
+    amount = models.DecimalField(max_digits=5, decimal_places=1, default=0)
+    unit = models.CharField(_("unit"), max_length=5, choices=Unit.choices, default=Unit.UNIT)
 
     class Meta:
-        verbose_name = _("recipe ingredient")
-        verbose_name_plural = _("recipe ingredients")
+        verbose_name = _("ingredient")
+        verbose_name_plural = _("ingredients")
 
     def __str__(self):
         return self.ingredient
