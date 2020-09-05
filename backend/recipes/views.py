@@ -1,25 +1,24 @@
-from rest_framework import mixins
-from rest_framework.viewsets import GenericViewSet
-from rest_framework.permissions import IsAdminUser
+from rest_framework.viewsets import ModelViewSet
 
-from .models import Recipe, RecipeImage
-from . import serializers
+from .models import Recipe, RecipeImage, Ingredient
+from .serializers import RecipeSerializer, RecipeImageSerializer, IngredientSerializer
 
 
-class RecipeViewSet(
-    mixins.CreateModelMixin,
-    mixins.RetrieveModelMixin,
-    mixins.ListModelMixin,
-    mixins.DestroyModelMixin,
-    GenericViewSet,
-):
+class RecipeViewSet(ModelViewSet):
+    """
+    This Recipe viewset auto-magically provides `list`, `create`, `retrieve`,
+    `update` and `destroy` actions.
+    """
 
     queryset = Recipe.objects.all()
-    serializer_class = serializers.RecipeSerializer
+    serializer_class = RecipeSerializer
 
 
-class RecipeImageViewSet(
-    mixins.RetrieveModelMixin, mixins.ListModelMixin, GenericViewSet,
-):
+class RecipeImageViewSet(ModelViewSet):
     queryset = RecipeImage.objects.all()
-    serializer_class = serializers.RecipeImageSerializer
+    serializer_class = RecipeImageSerializer
+
+
+class IngredientViewSet(ModelViewSet):
+    queryset = Ingredient.objects.all()
+    serializer_class = IngredientSerializer

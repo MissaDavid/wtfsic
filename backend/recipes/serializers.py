@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Recipe, RecipeImage
+from .models import Recipe, RecipeImage, Ingredient
 
 
 def std_image_field_serializer(std_image_field, request=None):
@@ -34,6 +34,7 @@ class RecipeSerializer(serializers.ModelSerializer):
             "instructions",
             "prep_time",
             "cook_time",
+            "ingredients",
         ]
 
     def get_images(self, obj):
@@ -48,3 +49,8 @@ class RecipeImageSerializer(serializers.ModelSerializer):
         model = RecipeImage
         fields = "__all__"
 
+
+class IngredientSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Ingredient
+        fields = "__all__"

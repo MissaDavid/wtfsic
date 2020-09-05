@@ -5,13 +5,13 @@ from stdimage import StdImageField
 
 
 class Unit(models.TextChoices):
-    UNIT = "U", _("unit")
-    GRAM = "G", _("gram")
-    KILO = "KG", _("kilogram")
-    TEASPOON = "TSP", _("teaspoon")
-    TABLESPOON = "TBSP", _("tablespoon")
-    CUP = "CUP", _("cup")
-    LITER = "L", _("liter")
+    UNIT = "unit", _("unit")
+    GRAM = "g", _("gram")
+    KILO = "kg", _("kilogram")
+    TEASPOON = "tsp", _("teaspoon")
+    TABLESPOON = "tbsp", _("tablespoon")
+    CUP = "cup", _("cup")
+    LITER = "l", _("liter")
 
 
 class Recipe(models.Model):
@@ -42,7 +42,9 @@ class Ingredient(models.Model):
     )
     ingredient = models.CharField(_("ingredient"), max_length=150)
     amount = models.DecimalField(max_digits=5, decimal_places=1, default=0)
-    unit = models.CharField(_("unit"), max_length=5, choices=Unit.choices, default=Unit.UNIT)
+    unit = models.CharField(
+        _("unit"), max_length=5, choices=Unit.choices, default=Unit.UNIT
+    )
 
     class Meta:
         verbose_name = _("ingredient")
@@ -73,4 +75,3 @@ class RecipeImage(models.Model):
 
     def __str__(self):
         return f"Image {self.sequence} for {self.recipe}"
-
