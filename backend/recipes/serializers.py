@@ -47,4 +47,3 @@ class RecipeImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = RecipeImage
         fields = "__all__"
-
