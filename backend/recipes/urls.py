@@ -7,5 +7,6 @@ from . import views
 router = DefaultRouter(trailing_slash=False)
 router.register("recipes", views.RecipeViewSet, basename="recipe")
 router.register("images", views.RecipeImageViewSet, basename="images")
+router.register("ingredients", views.IngredientViewSet, basename="ingredients")
 
 urlpatterns = router.urls

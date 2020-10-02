@@ -15,7 +15,7 @@ const RecipeCard = ({ recipe }) => {
         <Image url={url} />
       </div>
       <h3 className='centered'>{recipe.title}</h3>
-      <div className='centered'>{totalCookTime} mins</div>
+      <div className='centered'>Ready in about {totalCookTime} mins</div>
       <p className='centered'>{recipe.description}</p>
     </div>
   );
