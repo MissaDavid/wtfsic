@@ -2,11 +2,20 @@
 
 An app for desperate veggos
 
+## Contributing - Guidelines
+
+This repo is now open for #Hacktoberfest !
+If you want to contribute, please follow the guidelines [here][contributing] firs, then come back here to read
+the _Getting Started_ section. You will find tickets to work on in the _project_ section of this repo.
+
 ## Getting Started
 
-WTFSIC is currenlty a `client-first application`, written in [Python][python] using the [Django][django] Web Framework for the `backend`, and using the [create-react-app][cra] setup for the `frontend`. Dependencies and virtual environments are managed with [Poetry][poetry]. This is more of a coding exercise, so I might change my mind on the way about how I want to architecture this!
+WTFSIC is currently a `client-first application`, written in [Python][python] using the [Django][django] Web Framework 
+for the `backend` with an sqlite3 DB, and using the [create-react-app][cra] setup for the `frontend`. Dependencies and 
+virtual environments are managed with [Poetry][poetry]. This is more of a coding exercise, so I might change my mind 
+about how I want to architecture this later, but this is what it is for now!
 
-Anyway you will need Poetry, Python 3.8, `Node` >= 8.10 and `npm` installed.
+Anyway you will need Poetry, Python 3.8, `Node` 14 and `npm` installed.
 
 ### Backend
 
@@ -46,6 +55,7 @@ This project uses:
 - [Django Rest Framework][drf]
 - [React][react] (With `create-react-app`)
 
+[contributing]: CONTRIBUTING.md
 [python]: https://www.python.org/
 [django]: https://www.djangoproject.com/
 [cra]: https://create-react-app.dev/docs/getting-started/
