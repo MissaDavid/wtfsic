@@ -18,8 +18,21 @@ def std_image_field_serializer(std_image_field, request=None):
     return result
 
 
+class RecipeImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = RecipeImage
+        fields = "__all__"
+
+
+class IngredientSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Ingredient
+        exclude = ('recipe',)
+
+
 class RecipeSerializer(serializers.ModelSerializer):
     images = serializers.SerializerMethodField()
+    ingredients = IngredientSerializer(many=True)
 
     class Meta:
         model = Recipe
@@ -37,20 +50,17 @@ class RecipeSerializer(serializers.ModelSerializer):
             "ingredients",
         ]
 
+    # https://www.django-rest-framework.org/api-guide/relations/#writable-nested-serializers
+    def create(self, validated_data):
+        ingredients_data = validated_data.pop('ingredients')
+        recipe = Recipe.objects.create(**validated_data)
+        for ingredient_data in ingredients_data:
+            Ingredient.objects.create(recipe=recipe, **ingredient_data)
+        return recipe
+
     def get_images(self, obj):
         request = self.context.get("request")
         return [
             std_image_field_serializer(si.image, request) for si in obj.images.all()
         ]
 
-
-class RecipeImageSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = RecipeImage
-        fields = "__all__"
-
-
-class IngredientSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Ingredient
-        fields = "__all__"
