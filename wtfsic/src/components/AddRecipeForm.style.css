@@ -1,0 +1,24 @@
+.recipe-form {
+  display: flex;
+  flex-direction: column;
+  margin: 5rem;
+}
+
+.table {
+  border-spacing: 0;
+}
+
+.table td {
+  padding: 0;
+}
+
+.table th {
+  font-weight: normal;
+  text-align: left;
+}
+
+.ingredients-input {
+  width: 100%;
+  padding: 1px 2px;
+  box-sizing: border-box;
+}
