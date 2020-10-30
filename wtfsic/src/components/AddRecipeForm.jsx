@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useForm, useFieldArray } from 'react-hook-form';
+import { toast } from "react-toastify";
 
 import './AddRecipeForm.style.css';
+
+const showSuccessMessage = () => toast.success("Recipe added !");
+const showErrorMessage = () => toast.error("Oops, something went wrong.")
 
 const postData = async (url = '', data = {}) => {
     const response = await fetch(url, {
@@ -29,7 +33,12 @@ const cleanRecipeData = (formData) => {
 
 const addRecipe = async (data) => {
     const cleanData = cleanRecipeData(data);
-    return await postData('/api/recipes', cleanData);
+    const recipe = await postData('/api/recipes', cleanData);
+    if (recipe)  {
+      showSuccessMessage()
+      return recipe;
+    }
+    showErrorMessage()
 }
 
 const AddRecipeForm = () => {
@@ -56,8 +65,13 @@ const AddRecipeForm = () => {
         fetchUnits();
     }, []);
 
+    const onSubmit = (data, event) => {
+      const recipe = addRecipe(data)
+      if (recipe) event.target.reset();
+    }
+
     return (
-        <form className='recipe-form' onSubmit={handleSubmit(addRecipe)}>
+        <form className='recipe-form' onSubmit={handleSubmit(onSubmit)}>
             <h2>New Recipe</h2>
 
             <label htmlFor='title'>Title</label>
@@ -73,7 +87,6 @@ const AddRecipeForm = () => {
                             <th>Ingredient</th>
                             <th>Amount</th>
                             <th>Unit</th>
-                            <th></th>
                         </tr>
                     </thead>
 
@@ -125,7 +138,7 @@ const AddRecipeForm = () => {
                                         className='ingredients-input'
                                         type='button'
                                         onClick={() => remove(index)}>
-                                        -
+                                        remove
                                     </button>
                                 </td>
                           </tr>
@@ -143,7 +156,7 @@ const AddRecipeForm = () => {
             <label htmlFor='instructions'>Step by step instructions</label>
             <textarea name='instructions' ref={register({required: true})}/>
 
-            <input className='submit-button' type='submit'/>
+          <input className='submit-button' type='submit' value='Add Recipe'/>
         </form>
     );
 };

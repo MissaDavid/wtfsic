@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { ToastContainer } from "react-toastify";
 
 import RecipeLister from './components/Recipe/RecipeLister';
 import AddRecipeForm from './components/AddRecipeForm';
+
 import './App.css';
 import './components/Button.style.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [recipeList, setRecipeList] = useState([]);
@@ -28,9 +31,21 @@ function App() {
     <div className='App'>
       <header className='App-header'>WTF Should I Cook?!</header>
       <div className='App-container'>
+        <ToastContainer
+          position="top-center"
+          autoClose={4000}
+          hideProgressBar
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss={false}
+          draggable
+          pauseOnHover={false}
+        />
+
         {newRecipePage ? (
           <>
-            <AddRecipeForm />
+            <AddRecipeForm/>
             <button
               className='simple-button'
               onClick={() => setNewRecipePage(false)}
@@ -40,12 +55,12 @@ function App() {
           </>
         ) : (
           <>
-            <RecipeLister recipes={recipeList} />
+            <RecipeLister recipes={recipeList}/>
             <button
               className='simple-button'
               onClick={() => setNewRecipePage(true)}
             >
-              Add
+              Add Recipe
             </button>
           </>
         )}
