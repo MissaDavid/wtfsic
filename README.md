@@ -5,8 +5,8 @@ An app for desperate veggos
 ## Contributing - Guidelines
 
 This repo is now open for #Hacktoberfest !
-If you want to contribute, please follow the guidelines [here][contributing] firs, then come back here to read
-the _Getting Started_ section. You will find tickets to work on in the _project_ section of this repo.
+If you want to contribute, please follow the guidelines [here][contributing] first, then come back here to read
+the _Getting Started_ section. You will find tickets to work on in the _project_ section of this repo, at the top.
 
 ## Getting Started
 
@@ -34,6 +34,8 @@ $ poetry run manage.py runserver
 
 (But if you're a lazy bum like me, you'll create an alias so you can run `prm runserver` instead)
 
+Now you can check that the api is running on `localhost:8000/api`.
+
 ### Front-end
 
 You can read this [README][frontend-readme] for more details, but in a nutshell:
@@ -45,7 +47,7 @@ $ cd wtfsic
 $ npm i
 ```
 
-Then you can run the local dev mode with `npm start`.
+Then you can run the local dev mode with `npm start`. Go to `localhost:3000` to see the app in action !
 
 ## Key Technologies
 
