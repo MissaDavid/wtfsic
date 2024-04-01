@@ -6,7 +6,7 @@ authors = ["MissaDavid <mei.chohee@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-Django = "^3.0.7"
+Django = "^3.2.25"
 envparse = "^0.2.0"
 djangorestframework = "^3.11.0"
 drf-yasg = "^1.17.1"
